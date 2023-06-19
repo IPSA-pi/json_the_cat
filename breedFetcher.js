@@ -1,11 +1,7 @@
+
 const request = require('request');
-const { argv } = require('process');
 
-let usrInput = argv[2];
-const url =  `https://api.thdecatapi.com/v1/breeds/search?q=${usrInput}`;
-
-
-const queryBreeds = function (url) {
+const fetchBreedDescription = function (url) {
   
   request(url, (error, response, body) => {
     if (error) {
@@ -23,4 +19,4 @@ const queryBreeds = function (url) {
     // return body;
   })
 }
-queryBreeds(url);
+module.exports = { fetchBreedDescription };
